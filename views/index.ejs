@@ -12,6 +12,8 @@
     <script src="/javascripts/index.js"></script>
 </head>
 
+
+
 <header>
     <h1>Challenge Two: Twitter</h1>
 </header>
@@ -24,7 +26,7 @@
         <div class="form-group">
             <div class="input-group">
                 <div class="input-group-addon">@</div>
-                <input class="form-control" type="text" placeholder="Twitter">
+                <input class="form-control" id="handle" type="text" placeholder="Twitter">
             </div>
         </div>
     </div>
@@ -35,8 +37,9 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        <button type="button" class="btn btn-info">Followers</button>
-        <button type="button" class="btn btn-info">Friends</button>
+
+        <button type="button" id="getFollowers" class="btn btn-info followers">Followers</button>
+        <button type="button" id="getFriends" class="btn btn-info">Friends</button>
     </div>
     <div class="col-md-4"></div>
 </div>
@@ -46,18 +49,24 @@
 <!-- TABLE -->
 <div class="row">
     <div class="col-lg-12">
+        <div class="output"></div>
+        <script id="template1" type="text/x-handlebars-template">
         <table class="table table-condensed table-striped">
             <thead>
-            <th>Twitter Username</th>
-            <th>Ratio</th>
-            <th id="icon"></th>
+                <th>Twitter Username</th>
+                <th>Ratio</th>
+                <th id="icon"></th>
             </thead>
             <tbody>
-            <td id="user"><span id="at">@</span></td>
-            <td id="ratio"></td>
-            <td id="img"><img src="images/twitter-logo.png" width="50px" height="50px"></td>
+                {{#each context}}
+                    <tr data-code="{{id}}">
+                        <td>@ {{handle}}</td>
+                        <td>{{name}}</td>
+                    </tr>
+                {{/each}}
             </tbody>
         </table>
+        </script>
     </div>
 </div>
 

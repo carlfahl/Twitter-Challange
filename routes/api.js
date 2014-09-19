@@ -10,18 +10,46 @@ var T = new Twit({
     , access_token_secret:  'Tz3iZuxt8amrInUac6Lc94tvimAQSkURvt1o59tjlBRrb'
 });
 
-var followers;
-//returns all of my followers
+var Tweeter = function(name, screen_name , id){
+    this.name = name;
+    this.handle = screen_name;
+    this.id = id;
+};
 
-api.get('/followers/:ids', function (req, res){
-    T.get('followers/list', { screen_name: req.params.ids },  function (err, data, response) {
-        followers = res.json(data);
-        console.log(followers.users[0].screen_name);
+var friends = [];
+var followers = [];
 
+/* GET home page. */
+api.get('/', function(req, res) {
+    console.log("/api worked");
+    res.end();
+});
+
+api.get('/twitter/:handle/followers', function (req, res){
+    followers = [];
+    T.get('followers/list', { screen_name: req.params.handle },  function (err, data, response) {
+
+        data.users.forEach(function(el){
+            var follower = new Tweeter(el.name, el.screen_name, el.id);
+            followers.push(follower);
+        });
+        res.json(followers);
     });
 
 });
 
+
+api.get('/twitter/:handle/friends', function (req, res){
+    friends = [];
+    T.get('friends/list', { screen_name: req.params.handle },  function (err, data, response) {
+        data.users.forEach(function(el){
+            var friend = new Tweeter(el.name, el.screen_name, el.id);
+            friends.push(friend);
+        });
+        res.json(friends);
+    });
+
+});
 
 
 
