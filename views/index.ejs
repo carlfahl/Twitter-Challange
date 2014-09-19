@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Same As Header Title">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v2.0.0.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/index.js"></script>
+</head>
+
+<header>
+    <h1>Challenge Two: Twitter</h1>
+</header>
+
+<body>
+<!-- Twitter Handle -->
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">@</div>
+                <input class="form-control" type="text" placeholder="Twitter">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<!-- BUTTONS -->
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <button type="button" class="btn btn-info">Followers</button>
+        <button type="button" class="btn btn-info">Friends</button>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+
+
+<!-- TABLE -->
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-condensed table-striped">
+            <thead>
+            <th>Twitter Username</th>
+            <th>Ratio</th>
+            <th id="icon"></th>
+            </thead>
+            <tbody>
+            <td id="user"><span id="at">@</span></td>
+            <td id="ratio"></td>
+            <td id="img"><img src="images/twitter-logo.png" width="50px" height="50px"></td>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
