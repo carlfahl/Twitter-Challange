@@ -12,6 +12,7 @@ var T = new Twit({
 
 var followers;
 //returns all of my followers
+//returns all of my followers
 api.get('/followers/:ids', function (req, res){
     T.get('followers/list', { screen_name: req.params.ids },  function (err, data, response) {
         followers = res.json(data);
